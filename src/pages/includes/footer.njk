@@ -1,0 +1,55 @@
+<footer class="footer">
+    <div class="page__container">
+        <div class="footer__inner">
+            <div class="footer__left-col">
+                <ul class="footer__nav">
+                    {% set navItems = [{
+                        "href":"#skills",
+                        "text":"Услуги"
+                    },{
+                        "href":"#portfolio",
+                        "text":"Портфолио"
+                    },{
+                        "href":"#prices",
+                        "text":"Стоимость"
+                    }] %}
+                    {% for item in navItems %}
+                        <li class="footer__link">
+                            <a data-scroll href="{{ item.href }}">{{ item.text }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer__center-col">
+                <ul class="footer__contacts">
+                    <li class="footer__contact footer__contact--phone">
+                        +7 (499) 995-77-55
+                    </li>
+                    <li class="footer__contact footer__contact--email">
+                        dmitry@alekseev.com
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__right-col">
+                <button data-modal class="footer__call-btn">Заказать звонок</button>
+                <div class="social">
+                    <div class="social__inner">
+                        <a href="https://vk.com/" target="_blank" rel="noopener" class="social__link social__link--vk"
+                           aria-label="Вконтакте"></a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                           class="social__link social__link--fb"
+                           aria-label="Фейсбук"></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener"
+                           class="social__link social__link--tw" aria-label="Твиттер"></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                           class="social__link social__link--inst"
+                           aria-label="Инстаграм"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer__copyright">
+        &copy; Дмитрий Алексеев, 2016 – 2018
+    </div>
+</footer>

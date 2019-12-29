@@ -1,0 +1,37 @@
+<header class="header">
+    <div class="page__container">
+        <div class="header__inner">
+            <button type="button" data-nav-toggle class="nav-btn" aria-label="Меню">
+                <span class="nav-btn__bar nav-btn__bar--top"></span>
+                <span class="nav-btn__bar nav-btn__bar--middle"></span>
+                <span class="nav-btn__bar nav-btn__bar--bottom"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__links">
+                    {% set navItems = [{
+                        "href":"#skills",
+                        "text":"Услуги"
+                    },{
+                        "href":"#portfolio",
+                        "text":"Портфолио"
+                    },{
+                        "href":"#prices",
+                        "text":"Стоимость"
+                    }] %}
+                    {% for item in navItems %}
+                        <li class="nav__link">
+                            <a data-scroll href="{{ item.href }}">
+                                {{ item.text }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <div class="header__phone">
+                +7 (499) 995-55-77
+            </div>
+            <button type="button" data-modal class="header__call-btn" aria-label="Заказать звонок">Заказать звонок
+            </button>
+        </div>
+    </div>
+</header>

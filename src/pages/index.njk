@@ -1,0 +1,145 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <section class="hero">
+        <span class="hero__badge hero__badge--hash hero__badge--moved">#</span>
+        <span class="hero__badge hero__badge--braces hero__badge--moved">{ }</span>
+        <span class="hero__badge hero__badge--slash hero__badge--moved">&lt;/&gt;</span>
+        <span class="hero__badge hero__badge--slash hero__badge--slash-tablet hero__badge--moved">&lt;/&gt;</span>
+        <span class="hero__badge hero__badge--div hero__badge--moved">&lt;div&gt;</span>
+        <span class="hero__badge hero__badge--div hero__badge--div-tablet hero__badge--moved">&lt;div&gt;</span>
+        <div class="page__container">
+            <div class="hero__inner">
+                <h1 class="section-title hero__title">Дмитрий Алексеев</h1>
+                <div class="hero__text">
+                    Frontend-разработчик и веб-верстальщик
+                </div>
+                <button type="button" data-modal data-request-form class="section-btn">Узнать больше</button>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="skills">
+        <div class="page__container">
+            <div class="skills__inner">
+                <h2 class="section-title skills__title">Что я делаю</h2>
+                <div class="skills__items">
+                    {% set skills = [{
+                        "img":"img/content/skills/01.png",
+                        "alt":"Вёрстка лендинг–страниц и сайтов любой сложности",
+                        "text":"Вёрстка лендинг–страниц и сайтов любой сложности"
+                    }, {
+                        "img":"img/content/skills/02.png",
+                        "alt":"Адаптивная вёрстка под все браузеры и устройства",
+                        "text":"Адаптивная вёрстка под все браузеры и устройства"
+                    }, {
+                        "img":"img/content/skills/03.png",
+                        "alt":"Frontend – разработка и программирование",
+                        "text":"Frontend – разработка и программирование"
+                    }, {
+                        "img":"img/content/skills/04.png",
+                        "alt":"Исправление и доработка существующей вёрстки",
+                        "text":"Исправление и доработка существующей вёрстки"
+                    }] %}
+                    {% for skill in skills %}
+                        <div class="skills__item">
+                            <div class="skills__img">
+                                <img src="{{ skill.img }}"
+                                     alt="{{ skill.alt }}">
+                            </div>
+                            <div class="skills__text">
+                                <p class="section-text">{{ skill.text }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <button type="button" data-modal data-request-form class="section-btn">Узнать стоимость</button>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio" class="portfolio">
+        <div class="page__container">
+            <div class="portfolio__inner">
+                <h2 class="section-title portfolio__title">Примеры моих работ</h2>
+                <div data-top-trigger class="portfolio__slider">
+                    <div class="portfolio__items">
+                        {% set portfolioItems = [{
+                            "img":"img/content/portfolio/01.jpg",
+                            "alt":"Сайт психолога Веры Антоновой",
+                            "text":"Сайт психолога Веры Антоновой"
+                        },{
+                            "img":"img/content/portfolio/02.jpg",
+                            "alt":"Сайт магазина детской одежды",
+                            "text":"Сайт магазина детской одежды"
+                        },{
+                            "img":"img/content/portfolio/03.jpg",
+                            "alt":"Сайт магазина «Рыболов»",
+                            "text":"Сайт магазина «Рыболов»"
+                        }] %}
+                        {% for i  in range(0,2) %}
+                            {% for item in portfolioItems %}
+                                <div class="portfolio__item">
+                                    <div class="portfolio__img">
+                                        <img src="{{ item.img }}" alt="{{ item.alt }}">
+                                    </div>
+                                    <div class="portfolio__text">{{ item.text }}</div>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <button type="button" data-modal data-request-form class="section-btn">Заказать проект</button>
+            </div>
+        </div>
+    </section>
+    <section id="prices" class="prices">
+        <span class="prices__badge prices__badge--braces">{ }</span>
+        <span class="prices__badge prices__badge--braces-2">{ }</span>
+        <span class="prices__badge prices__badge--hash">#</span>
+        <span class="prices__badge prices__badge--slash">&lt;/&gt;</span>
+        <span class="prices__badge prices__badge--div">&lt;div&gt;</span>
+        <div class="page__container">
+            <div class="prices__inner">
+                <div class="prices__text">
+                    Адаптивная вёрстка под все устройства и браузеры от 1000 рублей всего за&nbsp;4&nbsp;часа.*
+                </div>
+                <div class="prices__footnote">
+                    * Срок и стоимость могут отличаться от заявленных и рассчитываются индивидуально, в зависимости от
+                    сложности задач.
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block modal %}
+    <div class="modal" id="modal">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__inner">
+                <button type="button" class="modal__close" data-micromodal-close></button>
+                <div class="modal__content">
+                    <h3 class="modal__title">
+                        Обратный звонок
+                    </h3>
+                    <form class="form modal__form">
+                        <div class="form__group">
+                            <label for="name" class="form__label">Ваше имя <sup>*</sup></label>
+                            <input id="name" class="form__input" type="text" name="name" data-pristine-required
+                                   data-pristine-required-message="Обязательное поле" data-pristine-name>
+                        </div>
+                        <div class="form__group">
+                            <label for="phone" class="form__label">Ваш телефон <sup>*</sup></label>
+                            <input id="phone" class="form__input" type="text" name="phone" data-pristine-phone>
+                        </div>
+                        <button type="submit" class="section-btn form__submit">
+                            Отправить заявку
+                        </button>
+                    </form>
+                    <p class="modal__footnote">
+                        Нажимая «Отправить заявку», вы даете <a href="#">согласие</a> на&nbsp;обработку
+                        своих персональных данных.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
